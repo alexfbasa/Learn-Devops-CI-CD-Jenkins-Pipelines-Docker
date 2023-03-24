@@ -11,12 +11,9 @@ RUN mkdir -p /tmp/download && \
     rm -rf /tmp/download/docker/dockerd && \
     mv /tmp/download/docker/docker* /usr/local/bin/ && \
     rm -rf /tmp/download && \
-    groupadd -g 995 docker && \
+    groupadd -g 999 docker && \
     gpasswd -a jenkins docker && \
     usermod -aG docker jenkins
-
-RUN touch /var/run/docker.sock
-RUN chmod 666 /var/run/docker.sock
 
 # Install app dependencies
 RUN pip install --upgrade pip
