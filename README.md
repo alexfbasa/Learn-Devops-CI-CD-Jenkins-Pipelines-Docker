@@ -21,15 +21,28 @@ your local env socks, like a symbolic link.
 When Jenkins container runs docker service, it will run it from your local env. So, you need to check it docker group is already defined
 in your local system.
 ````commandline
-ps au | grep docker
+cat /etc/group | grep docker
+or
+getent group docker
 e.g output
 docker:x:999:user
 ````
+## Create jenkins_home folder and give permission
+mkdir /var/jenkins_home
+sudo chown -R 1000:1000 /var/jenkins_home/
 Now run the Jenkins image just created with the sock connection parameter:
 ```commandline
- docker run -d -p 8080:8080 -p 50000:50000 -v /var/jenkins_home/:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins_course
+docker run -d -p 8080:8080 -p 50000:50000 -v /var/jenkins_home/:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins_course
 ```
-Install the CloudBees Docker Build and Publish plugin on Jenkins.
+Take the installation key from the docker container logs
+docker logs -f $container_number
+admin admin
+
+## Plugins list
+CloudBees Docker Build and Publish plugin on Jenkins
+Docker Pipeline
+GitHub Branch source
+BitBucket Branch source  -- Scan team/project folders
 
 1.2 - Create a new pipeline and set up a Freestyle. 
 -- Inform your Git repository where you have your project and docker file do build.
