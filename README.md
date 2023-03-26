@@ -40,10 +40,18 @@ admin admin
 
 ## Plugins list
 CloudBees Docker Build and Publish plugin on Jenkins
-Docker Pipeline
+Docker Pipeline -- take a look at the documentation 
 GitHub Branch source
+GitHub Organization Folder
 BitBucket Branch source  -- Scan team/project folders
 
+## Running manually pipeline 
+
+## Running manually pipeline with docker container
+
+## Running Job DSL creator
+
+## Running Jenkinsfile as a code
 1.2 - Create a new pipeline and set up a Freestyle. 
 -- Inform your Git repository where you have your project and docker file do build.
 This parameter informs Jenkins where is your project and your docker definitions.
@@ -57,3 +65,4 @@ docker run -p 3000:3000 -d --name my-nodejs-app alexsimple/docker-nodejs-demo
 
 Go to web browser:
 http://localhost:3000
+
